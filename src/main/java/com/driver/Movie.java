@@ -1,6 +1,9 @@
 package com.driver;
 
 import org.jetbrains.annotations.NotNull;
+import org.springframework.stereotype.Component;
+
+@Component
 
 public class Movie {
     @NotNull
