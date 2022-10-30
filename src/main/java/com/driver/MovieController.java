@@ -15,7 +15,6 @@ public class MovieController {
 
     @Autowired
     MovieService movieService;
-    private String name;
 
     // 1. Add a movie
     @PostMapping("/add-movie")
