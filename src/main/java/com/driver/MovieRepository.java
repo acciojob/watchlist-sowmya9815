@@ -52,7 +52,7 @@ public class MovieRepository {
         //System.out.println("in repo" + " "+ name);
         List<String> movieNamesList = new ArrayList<>();
         for(Map.Entry<String, String> entry: mvd.entrySet()) {
-            System.out.println(entry.getValue());
+            //System.out.println(entry.getValue());
             if(entry.getValue().equals(name)) {
                 //System.out.println("if");
                 movieNamesList.add(entry.getKey());
@@ -75,13 +75,18 @@ public class MovieRepository {
     }
 
     void deleteDirectorByName(String name){
-        directors.remove(name);
         for (Map.Entry<String,String> mapElement : mvd.entrySet()){
             if(mapElement.getValue().equals(name)) {
                 movies.remove(mapElement.getKey());
                 mvd.remove(mapElement.getKey());
             }
         }
+        for(Director director:directors.values()){
+            if(director.getName().equals(name)){
+                directors.remove(name);
+            }
+        }
+
     }
     void deleteAllDirectors(){
         for(Director director:directors.values()){

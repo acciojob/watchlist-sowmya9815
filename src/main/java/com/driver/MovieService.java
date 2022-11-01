@@ -60,6 +60,7 @@ public class MovieService {
     }
 
     void deleteAllDirectors(){
+
         movieRepository.deleteAllDirectors();
     }
 
