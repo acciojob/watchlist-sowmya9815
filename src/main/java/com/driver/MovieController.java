@@ -3,10 +3,7 @@ package com.driver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -68,8 +65,8 @@ public class MovieController {
 
     // 6. Get List of movies name for a given director name
     @GetMapping("/get-movies-by-director-name/{director}")
-    public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable String director) {
-        System.out.println("in controller");
+    public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable String director) {
+        //System.out.println("in controller");
         return new ResponseEntity<>(movieService.getMoviesByDirectorName(director), HttpStatus.OK);
     }
 
