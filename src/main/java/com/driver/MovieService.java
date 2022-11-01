@@ -45,7 +45,7 @@ public class MovieService {
     // 6. Get List of movies name for a given director name
 
     List<Movie> getMoviesByDirectorName(String name){
-
+        System.out.println("in service");
         return movieRepository.getMoviesByDirectorName(name);
     }
 

@@ -69,6 +69,7 @@ public class MovieController {
     // 6. Get List of movies name for a given director name
     @GetMapping("/get-movies-by-director-name/{director}")
     public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable String director) {
+        System.out.println("in controller");
         return new ResponseEntity<>(movieService.getMoviesByDirectorName(director), HttpStatus.OK);
     }
 
@@ -85,7 +86,6 @@ public class MovieController {
             movieService.deleteDirectorByName(drName);
             return new ResponseEntity<>("Success", HttpStatus.CREATED);
         } catch (Exception e) {
-
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }

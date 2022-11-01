@@ -49,12 +49,13 @@ public class MovieRepository {
     // 6. Get List of movies name for a given director name
 
     List<Movie> getMoviesByDirectorName(String name){
-
+        System.out.println("in repo" + " "+ name);
         List<Movie> movieNamesList = new ArrayList<>();
-
-        for (Map.Entry<String,String> mapElement : mvd.entrySet()){
-            if(mapElement.getValue()==name){
-                movieNamesList.add(movies.get(mapElement.getKey()));
+        for(Map.Entry<String, String> entry: mvd.entrySet()) {
+            System.out.println(entry.getValue());
+            if(entry.getValue().equals(name)) {
+                System.out.println("if");
+                movieNamesList.add(movies.get(entry.getKey()));
             }
         }
         return movieNamesList;
@@ -76,7 +77,7 @@ public class MovieRepository {
     void deleteDirectorByName(String name){
         directors.remove(name);
         for (Map.Entry<String,String> mapElement : mvd.entrySet()){
-            if(mapElement.getValue()==name) {
+            if(mapElement.getValue().equals(name)) {
                 movies.remove(mapElement.getKey());
                 mvd.remove(mapElement.getKey());
             }
@@ -85,7 +86,7 @@ public class MovieRepository {
     void deleteAllDirectors(){
         for(Director director:directors.values()){
             for (Map.Entry<String,String> mapElement : mvd.entrySet()){
-                if(mapElement.getValue()==director.getName()) {
+                if(mapElement.getValue().equals(director.getName())) {
                     movies.remove(mapElement.getKey());
                     mvd.remove(mapElement.getKey());
                 }
