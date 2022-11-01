@@ -64,12 +64,12 @@ public class MovieRepository {
 
 
     // 7. Get List of all movies added
-    List<Movie> findAllMovies(){
+    List<String> findAllMovies(){
 
-        List<Movie> movieList = new ArrayList<>();
+        List<String> movieList = new ArrayList<>();
 
         for(Movie movie:movies.values()){
-            movieList.add(movie);
+            movieList.add(movie.getName());
         }
         return movieList;
     }

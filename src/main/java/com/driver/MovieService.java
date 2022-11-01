@@ -50,7 +50,7 @@ public class MovieService {
     }
 
     // 7. Get List of all movies added
-    List<Movie> findAllMovies(){
+    List<String> findAllMovies(){
 
         return movieRepository.findAllMovies();
     }
