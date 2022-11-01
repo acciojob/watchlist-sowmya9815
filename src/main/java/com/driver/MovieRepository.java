@@ -48,13 +48,13 @@ public class MovieRepository {
 
     // 6. Get List of movies name for a given director name
 
-    List<String> getMoviesByDirectorName(String name){
+    List<Movie> getMoviesByDirectorName(String name){
 
-        List<String> movieNamesList = new ArrayList<>();
+        List<Movie> movieNamesList = new ArrayList<>();
 
         for (Map.Entry<String,String> mapElement : mvd.entrySet()){
             if(mapElement.getValue()==name){
-                movieNamesList.add(mapElement.getKey());
+                movieNamesList.add(movies.get(mapElement.getKey()));
             }
         }
         return movieNamesList;
